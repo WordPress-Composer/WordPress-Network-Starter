@@ -1,6 +1,6 @@
 {
-    "name": "gemmablack/wordpress_composer_starter",
-    "description": "WordPress Composer Starter repository for quick-starting WordPress projects",
+    "name": "wp/wordpress_composer_starter",
+    "description": "WordPress Composer Starter repository for quick-starting WordPress projects and the WordPress MultiSite Network",
     "repositories":[
         {
             "type":"composer",
