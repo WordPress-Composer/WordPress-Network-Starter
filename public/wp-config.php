@@ -108,15 +108,19 @@ define( 'WP_AUTO_UPDATE_CORE', false );
  */
 define( 'WP_ALLOW_MULTISITE', filter_var(getenv('ALLOW_MULTISITE'), FILTER_VALIDATE_BOOLEAN));
 
-define('MULTISITE', true);
-define('SUBDOMAIN_INSTALL', false);
-define('DOMAIN_CURRENT_SITE', WP_HOME);
-define('WP_CORE_DIRECTORY', WP_ADMIN_DIR);
-define('SITE_ID_CURRENT_SITE', 1);
-define('BLOG_ID_CURRENT_SITE', 1); 
+define('IS_MULTISITE', filter_var(getenv('IS_MULTISITE'), FILTER_VALIDATE_BOOLEAN));
 
-define('COOKIE_DOMAIN', $_SERVER['HTTP_HOST']);
-define('ADMIN_COOKIE_PATH', '/');
+if (IS_MULTISITE) {
+	define('MULTISITE', true);
+	define('SUBDOMAIN_INSTALL', false);
+	define('DOMAIN_CURRENT_SITE', WP_HOME);
+	define('WP_CORE_DIRECTORY', WP_ADMIN_DIR);
+	define('SITE_ID_CURRENT_SITE', 1);
+	define('BLOG_ID_CURRENT_SITE', 1); 
+
+	define('COOKIE_DOMAIN', $_SERVER['HTTP_HOST']);
+	define('ADMIN_COOKIE_PATH', '/');
+}
 
 /**
  * WordPress table prefix
